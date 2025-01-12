@@ -13,9 +13,9 @@ function TabBarIcon(props: {
 export default function AppLayout() {
 	const { isAuthenticated } = useAuth();
 
-	if (!isAuthenticated) {
-		return <Redirect href="/sign-in" />;
-	}
+	// if (!isAuthenticated) {
+	// 	return <Redirect href="/sign-in" />;
+	// }
 
 	return (
 		<Tabs
@@ -27,7 +27,7 @@ export default function AppLayout() {
 				name="index"
 				options={{
 					title: "Home",
-					tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+					tabBarIcon: ({ color }) => <TabBarIcon name="home" color={"black"} />,
 				}}
 			/>
 			<Tabs.Screen

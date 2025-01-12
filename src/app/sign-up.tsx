@@ -28,7 +28,7 @@ export default function SignUp() {
 	};
 
 	return (
-		<View className="flex-1 items-center justify-center gap-1">
+		<View className="flex-1 items-center justify-center gap-2 bg-gray-100">
 			<Text className="text-5xl text-black font-bold mb-14">Sign Up</Text>
 
 			<View className="w-full items-center gap-4 mb-10">
@@ -38,14 +38,14 @@ export default function SignUp() {
 						field: { onChange, onBlur, value },
 						fieldState: { error },
 					}) => (
-						<View className="w-full items-center">
-							<Input
-								placeholder="Name"
-								onBlur={onBlur}
-								onChange={onChange}
-								value={value}
-							/>
-						</View>
+						<Input
+							placeholder="Name"
+							onBlur={onBlur}
+							onChange={onChange}
+							value={value}
+							className="shadow-md bg-white"
+							textContentType="name"
+						/>
 					)}
 					name="name"
 				/>
@@ -60,14 +60,14 @@ export default function SignUp() {
 						field: { onChange, onBlur, value },
 						fieldState: { error },
 					}) => (
-						<View className="w-full items-center">
-							<Input
-								placeholder="Email"
-								onBlur={onBlur}
-								onChange={onChange}
-								value={value}
-							/>
-						</View>
+						<Input
+							placeholder="Email"
+							onBlur={onBlur}
+							onChange={onChange}
+							value={value}
+							className="shadow-md bg-white"
+							textContentType="emailAddress"
+						/>
 					)}
 					name="email"
 				/>
@@ -83,14 +83,15 @@ export default function SignUp() {
 						field: { onChange, onBlur, value },
 						fieldState: { error },
 					}) => (
-						<View className="w-full items-center">
-							<Input
-								placeholder="Password"
-								onBlur={onBlur}
-								onChange={onChange}
-								value={value}
-							/>
-						</View>
+						<Input
+							placeholder="Password"
+							onBlur={onBlur}
+							onChange={onChange}
+							value={value}
+							className="shadow-md bg-white"
+							textContentType="password"
+							secureTextEntry={true}
+						/>
 					)}
 					name="password"
 				/>
@@ -101,11 +102,14 @@ export default function SignUp() {
 				)}
 			</View>
 
-			<Button label="Send" onPress={() => handleSubmit(onSubmit)} />
+			<Button label="Send" onPress={handleSubmit(onSubmit)} />
 
-			<Link href="/sign-in">
-				<Text>Already have an account?</Text>
-			</Link>
+			<Text className="mt-4 text-black/70">
+				Already have an account?{"  "}
+				<Link href="/sign-in">
+					<Text className="font-bold text-lg text-black">Sign In</Text>
+				</Link>
+			</Text>
 		</View>
 	);
 }
