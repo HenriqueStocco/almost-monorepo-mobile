@@ -11,10 +11,8 @@ import { Slot } from "expo-router";
 import { SQLiteProvider } from "expo-sqlite";
 import { AuthProvider } from "../contexts/authentication";
 import { StatusBar } from "expo-status-bar";
-export {
-	// Catch any errors thrown by the Layout component.
-	ErrorBoundary,
-} from "expo-router";
+import { createUserTable } from "@/db/initialize";
+export { ErrorBoundary } from "expo-router";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -49,7 +47,7 @@ export function RootLayoutNav() {
 			<StatusBar animated style="auto" translucent />
 
 			<AuthProvider>
-				<SQLiteProvider databaseName="database.db">
+				<SQLiteProvider databaseName="database.db" onInit={createUserTable}>
 					<Slot />
 				</SQLiteProvider>
 			</AuthProvider>
